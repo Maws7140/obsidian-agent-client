@@ -410,15 +410,43 @@ If your plugin does not need CSS, delete this file.
 	margin: 0 10px 0 auto !important;
 	padding: 2px 8px;
 	font-size: 11px;
+	line-height: 1.2;
 	color: var(--text-muted);
 	background-color: var(--background-modifier-hover);
 	border-radius: 4px;
 	font-weight: 500;
+	white-space: nowrap;
 }
 
 .agent-client-chat-view-header-actions {
 	display: flex;
 	gap: 8px;
+}
+
+/* ===== Inline Header (Floating/CodeBlock) ===== */
+.agent-client-inline-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px 12px;
+	border-bottom: 1px solid var(--background-modifier-border);
+	background-color: var(--background-primary);
+	flex-shrink: 0;
+	flex-wrap: nowrap;
+	min-height: 36px;
+}
+
+.agent-client-inline-header-main {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.agent-client-inline-header-actions {
+	display: flex;
+	gap: 4px;
+	justify-content: flex-end;
+	flex-shrink: 0;
 }
 
 /* Messages container */
@@ -430,6 +458,7 @@ If your plugin does not need CSS, delete this file.
 	display: flex;
 	flex-direction: column;
 	gap: 2px;
+	min-height: 0;
 }
 
 /* Allow horizontal scroll for wide tables within messages */
@@ -1139,6 +1168,12 @@ If your plugin does not need CSS, delete this file.
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 	word-break: break-word;
+	max-width: 100%;
+}
+
+.agent-client-markdown-text-renderer .markdown-rendered pre {
+	max-width: 100%;
+	overflow-x: auto;
 }
 
 /* Tool Call Diff Renderer */
@@ -1857,6 +1892,7 @@ If your plugin does not need CSS, delete this file.
 	border-bottom: 1px solid var(--background-modifier-border);
 	cursor: grab;
 	user-select: none;
+	border-radius: 11px 11px 0 0;
 }
 
 .agent-client-floating-header:active {
@@ -1897,12 +1933,15 @@ If your plugin does not need CSS, delete this file.
 	flex-direction: column;
 	overflow: hidden;
 	padding: 4px;
+	min-height: 0;
 }
 
 .agent-client-floating-messages-container {
 	flex: 1;
 	overflow-y: auto;
+	overflow-x: hidden;
 	margin-bottom: 8px;
+	min-height: 0;
 }
 
 /* ===== Code Block Chat View ===== */
@@ -1951,6 +1990,7 @@ If your plugin does not need CSS, delete this file.
 	display: flex;
 	align-items: center;
 	gap: 4px;
+	flex-wrap: wrap;
 }
 
 .agent-client-code-block-messages {
@@ -2000,8 +2040,14 @@ If your plugin does not need CSS, delete this file.
 	border-radius: 4px;
 	padding: 2px 6px;
 	font-size: 12px;
+	line-height: 1.4;
 	color: var(--text-normal);
 	cursor: pointer;
+	max-width: 200px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	height: 22px;
 }
 
 .agent-client-agent-selector:hover,
