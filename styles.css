@@ -1884,19 +1884,18 @@ If your plugin does not need CSS, delete this file.
 }
 
 .agent-client-floating-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 6px 12px;
-	background: var(--background-secondary);
-	border-bottom: 1px solid var(--background-modifier-border);
 	cursor: grab;
 	user-select: none;
 	border-radius: 11px 11px 0 0;
+	overflow: hidden;
 }
 
 .agent-client-floating-header:active {
 	cursor: grabbing;
+}
+
+.agent-client-floating-header .agent-client-inline-header {
+	border-radius: 11px 11px 0 0;
 }
 
 .agent-client-floating-header-title {
